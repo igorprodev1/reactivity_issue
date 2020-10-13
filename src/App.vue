@@ -1,27 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <h1>Loading: {{loading}}</h1>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from './components/HelloWorld.vue';
+import { Vue } from 'vue-class-component';
 
-@Options({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
-</script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+export default class App extends Vue {
+  loading = false
+  mounted () {
+    setTimeout(() =>{
+      this.loading = true
+    }, 1000)
+    setTimeout(() =>{
+      this.loading = false
+    }, 2000)
+  }
 }
-</style>
+</script>
